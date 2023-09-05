@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load custom_tag %}
+
+
+{% block content_main %}
+    <div class="file-cards">
+        {% for file in files %}
+            {% if file %}
+                <div class="file-card">
+                    <h3>{% get_filename file.upload_file %}</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac elit vel mi feugiat iaculis.</p>
+                    <a href="{% url 'file-delete' file.id %}" class="btn btn-outline-danger"><i
+                            class="bi bi-trash2-fill"></i></a>
+                    <a href="{% url 'file-download' file.id %}" class="btn btn-outline-danger"><i
+                            class="bi bi-download"></i></a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

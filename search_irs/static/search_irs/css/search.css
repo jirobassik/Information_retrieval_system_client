@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.search-container {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.search-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 5px;
+}
+
+button#search-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.file-upload {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.custom-file-upload {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.file-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.file-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.two_but {
+    position: relative;
+    text-align: center;
+    top: 465px;
+}
+
+.custom-file-upload {
+    color: black;
+    background-color: grey;
+    border-radius: 12px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+    background-color: grey; /* black */
+    color: white;
+}
+
+.accept_upl {
+    color: black;
+    background-color: grey;
+    border-radius: 12px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.accept_upl:hover {
+    background-color: grey; /* black */
+    color: white;
+}
+
+
+input[type="file"] {
+    display: none;
+}
+
+
+
+#save_csv {
+    position: relative;
+    color: black;
+    background-color: white;
+    border-radius: 12px;
+    font-size: 15px;
+    border: 2px solid black;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+#save_csv:hover {
+    background-color: black; /* black */
+    color: white;
+}
