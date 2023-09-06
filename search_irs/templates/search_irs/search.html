@@ -9,7 +9,8 @@
                 <h3>Word: {{ word }}</h3>
                 <h4>Filenames:</h4>
                 {% for filename in filenames %}
-                    <p>{{ filename }}</p>
+                    {% get_file_id filename files as file_id %}
+                    <a class="file-link" href={% url 'file-download' file_id %}><h7>{{ filename }}</h7></a>
                 {% endfor %}
             </div>
         {% endfor %}

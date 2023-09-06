@@ -5,8 +5,8 @@ from django.shortcuts import render
 from django.urls import reverse
 import cgi
 
-from utils.init_json_ser_req import file_request, file_json_serializer, query_request, query_json_serializer, \
-    download_request
+from utils.init_json_ser_req import file_request, query_request, query_json_serializer, download_request
+from utils.queryset_upl import file_queryset_upl
 
 
 def search(request):
@@ -14,12 +14,12 @@ def search(request):
         serialize_query = query_json_serializer.encode(query=request.POST['query'])
         data_query_request = query_request.get_request_data(serialize_query)
         dict_filenames = json.loads(data_query_request)
-        return render(request, 'search_irs/search.html', {'dict_filenames': dict_filenames})
+        queryset_file = file_queryset_upl()
+        return render(request, 'search_irs/search.html', {'dict_filenames': dict_filenames, 'files': queryset_file})
     if 'upl' in request.POST:
         if upl_file := request.FILES.get('document', False):
             file_request.post_request_file(upl_file)
-    raw_data_file = file_request.get_request()
-    queryset_file = file_json_serializer.decode(raw_data_file)
+    queryset_file = file_queryset_upl()
     return render(request, 'search_irs/main_view.html', {'files': queryset_file})
 
 

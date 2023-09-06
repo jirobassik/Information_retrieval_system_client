@@ -24,8 +24,6 @@ class Request:
         return requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/', data=data,
                             headers={'Content-Type': 'application/json'}).content
 
-    # def detail_get_request(self, id):
-    #     return requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/{id}')
     def detail_get_request(self, id):
         response = requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/{id}')
         return response.content, response.headers.get('Content-Disposition')
