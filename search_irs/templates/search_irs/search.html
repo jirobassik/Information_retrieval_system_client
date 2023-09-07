@@ -10,7 +10,7 @@
                 <h4>Filenames:</h4>
                 {% for filename in filenames %}
                     {% get_file_id filename files as file_id %}
-                    <a class="file-link" href={% url 'file-download' file_id %}><h7>{{ filename }}</h7></a>
+                    <a class="file-link" href={% url 'file-download' file_id %}>{{ filename }}</a>
                 {% endfor %}
             </div>
         {% endfor %}
