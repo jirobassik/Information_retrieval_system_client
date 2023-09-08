@@ -13,6 +13,8 @@
                             class="bi bi-trash2-fill"></i></a>
                     <a href="{% url 'file-download' file.id %}" class="btn btn-outline-danger"><i
                             class="bi bi-download"></i></a>
+                    <a href="{% url 'file-class' file.id %}" class="btn btn-outline-danger"><i
+                            class="bi bi-bar-chart"></i></a>
                 </div>
             {% endfor %}
         {% else %}

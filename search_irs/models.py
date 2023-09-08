@@ -7,3 +7,9 @@ class FileModel:
 class QueryModel:
     def __init__(self, query):
         self.query = query
+
+
+class ClassificationModel:
+    def __init__(self, text_class, filename):
+        self.text_class = text_class
+        self.filename = filename

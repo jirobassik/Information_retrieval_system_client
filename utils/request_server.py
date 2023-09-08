@@ -17,6 +17,10 @@ class Request:
     def download_model(cls):
         return cls('download')
 
+    @classmethod
+    def classification_model(cls):
+        return cls('classification')
+
     def get_request(self):
         return requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/').content
 
@@ -24,9 +28,12 @@ class Request:
         return requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/', data=data,
                             headers={'Content-Type': 'application/json'}).content
 
-    def detail_get_request(self, id):
+    def detail_get_request_file(self, id):
         response = requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/{id}')
         return response.content, response.headers.get('Content-Disposition')
+
+    def detail_get_request(self, id):
+        return requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/{id}')
 
     def post_request(self, data: dict):
         requests.post(f'http://127.0.0.1:8001/api/v1/{self.model_name}/', data=data,

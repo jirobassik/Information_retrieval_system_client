@@ -16,5 +16,5 @@ class JsonSerializer:
         stream = BytesIO(raw_data)
         data = JSONParser().parse(stream)
         serializer = self.model_serializer(data=data, many=many)
-        serializer.is_valid(raise_exception=False)
+        serializer.is_valid(raise_exception=True)
         return serializer.validated_data

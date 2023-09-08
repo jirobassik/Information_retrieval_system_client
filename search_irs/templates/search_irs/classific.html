@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load custom_tag %}
+
+{% block content_main %}
+    <div class="file-cards">
+        <div class="file-card">
+            <h3>Filename: {{ class.filename }}</h3>
+            <h5>Classifications:</h5>
+            {% for classific in  class.text_class %}{{ classific }}{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
