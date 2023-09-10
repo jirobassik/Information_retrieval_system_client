@@ -151,3 +151,14 @@ a.home-button {
     text-decoration: none;
     color: inherit;
 }
+
+.search-container {
+    position: relative;
+}
+
+.bi-question-circle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+}

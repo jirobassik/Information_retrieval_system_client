@@ -22,14 +22,13 @@
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="search-container">
-            <a href="{% url 'search' %}" class="home-button"><h1>Поиск информации</h1></a>
+            <a href="{% url 'help' %}" class="home-button"><i class="bi bi-question-circle"></i></a>
+            <h1><a href="{% url 'search' %}" class="home-button">Поиск информации</a></h1>
             <div class="search-input">
-
                 <label for="search-query"><input type="text" id="search-query" placeholder="Введите запрос"
                                                  name="query" required="required"
-                                                 pattern="([A-Za-z0-9]{1,30})(?:,\s*([A-Za-z0-9]{1,30}))*"></label>
+                                                 pattern="([A-Za-z0-9 ]{1,50})*"></label>
                 <button id="search-button" name="query_button">Поиск</button>
-
             </div>
         </div>
     </form>
@@ -43,6 +42,7 @@
             <button class="accept_upl" type="submit" name="upl">Загрузить файл</button>
         </div>
     </form>
+
     {% block content_main %}
     {% endblock %}
 </main>
