@@ -21,6 +21,10 @@ class Request:
     def classification_model(cls):
         return cls('classification')
 
+    @classmethod
+    def metrics_model(cls):
+        return cls('metric')
+
     def get_request(self):
         return requests.get(f'http://127.0.0.1:8001/api/v1/{self.model_name}/').content
 

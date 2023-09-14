@@ -1,0 +1,54 @@
+{% extends 'layout_metric.html' %}
+{% load static %}
+{% block style %}{% static 'metrics/css/metric.css' %}{% endblock %}
+{% block content_main %}
+    <h1>Метрики </h1>
+    <h2>Recall: {{ metrics.recall }}</h2>
+    <h2>Precision: {{ metrics.precision }}</h2>
+    <h2>Accuracy: {{ metrics.accuracy }}</h2>
+    <h2>Error: {{ metrics.error }}</h2>
+    <h2>F-measure: {{ metrics.fmeasure }}</h2>
+    <h2>Middle metric: {{ metrics.middle_metric }}</h2>
+    <h2>Precision N: {{ metrics.precision_n }}</h2>
+
+    <div id="lineplot">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script>
+            var recall = {{ metrics.list_recall }};
+            var precision = {{ metrics.list_precision }};
+
+            var trace = {
+                x: recall,
+                y: precision,
+                mode: 'lines+markers',
+                type: 'scatter',
+                marker: {
+                    symbol: 'circle',
+                    size: 8,
+                    color: 'green'
+                },
+                line: {
+                    dash: 'dash'
+                }
+            };
+
+            var data = [trace];
+
+            var layout = {
+                xaxis: {
+                    title: 'Recall',
+                    type: 'linear'
+                },
+                yaxis: {
+                    title: 'Precision',
+                    type: 'linear'
+                },
+                title: 'Precision vs Recall',
+                width: 1400,
+                height: 400
+            };
+
+            Plotly.newPlot('lineplot', data, layout);
+        </script>
+    </div>
+{% endblock %}

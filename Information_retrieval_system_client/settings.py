@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'search_irs',
     'help',
+    'metrics',
 ]
 
 MIDDLEWARE = [

@@ -162,3 +162,17 @@ a.home-button {
     right: 0;
     font-size: 30px;
 }
+
+.bi-house {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+}
+
+.bi-calculator {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    font-size: 30px;
+}
