@@ -8,13 +8,9 @@
         {% if files %}
             {% for file in files %}
                 <div class="file-card">
-                    <h3>{% get_filename file.upload_file %}</h3>
-                    <a href="{% url 'file-delete' file.id %}" class="btn btn-outline-danger"><i
-                            class="bi bi-trash2-fill"></i></a>
-                    <a href="{% url 'file-download' file.id %}" class="btn btn-outline-danger"><i
-                            class="bi bi-download"></i></a>
-                    <a href="{% url 'file-class' file.id %}" class="btn btn-outline-danger"><i
-                            class="bi bi-bar-chart"></i></a>
+                    {% get_filename file.upload_file as filename %}
+                    <h3><a href="{% url 'file-download' file.id %}">{{ filename }}</a></h3>
+                    {{ file.file_content|truncatewords:20 }}
                 </div>
             {% endfor %}
         {% else %}

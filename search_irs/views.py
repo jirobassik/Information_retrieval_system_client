@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.urls import reverse
 import cgi
-from utils.init_json_ser_req import file_request, query_request, query_json_serializer, download_request, \
+from utils.init_json_ser_req import query_request, query_json_serializer, download_request, \
     classification_request, classification_json_serializer
 from utils.queryset_upl import file_queryset_upl
 
@@ -12,14 +12,7 @@ from utils.queryset_upl import file_queryset_upl
 def search(request):
     if 'query_button' in request.POST:
         return handle_query_request(request)
-    elif 'upl' in request.POST:
-        handle_upl_request(request)
     return show_main_view(request)
-
-
-def handle_upl_request(request):
-    if upl_file := request.FILES.get('document', False):
-        file_request.post_request_file(upl_file)
 
 
 def handle_query_request(request):
@@ -33,11 +26,6 @@ def handle_query_request(request):
 def show_main_view(request):
     queryset_file = file_queryset_upl()
     return render(request, 'search_irs/main_view.html', {'files': queryset_file})
-
-
-def delete_file(request, pk):
-    file_request.delete_request(id=pk)
-    return HttpResponseRedirect(reverse('search'))
 
 
 def classification_text_file(request, pk):

@@ -8,6 +8,7 @@ class SearchSerializer(serializers.Serializer):
 class FileSerializer(serializers.Serializer):
     id = serializers.IntegerField()
     upload_file = serializers.CharField()
+    file_content = serializers.CharField()
 
 
 class ClassificationSerializer(serializers.Serializer):

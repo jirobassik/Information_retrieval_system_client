@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'search_irs',
     'help',
     'metrics',
+    'view_files',
 ]
 
 MIDDLEWARE = [
