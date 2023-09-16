@@ -54,14 +54,15 @@ button#search-button {
 .file-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 60px;
+    padding: 50px;
 }
 
 .file-card {
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     border-radius: 5px;
-    padding: 10px;
+    padding: 30px;
     width: 300px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

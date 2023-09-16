@@ -5,17 +5,16 @@
 {% block content_main %}
     <div class="file-cards">
         {% for word, filenames in dict_filenames.items %}
-            <div class="file-card">
-                <h3>Word: {{ word }}</h3>
-                <h4>Filenames:</h4>
-                <h6>
-                    {% for filename in filenames %}
-                        {% get_file_id filename files as file_id %}
-                        <a class="file-link" href={% url 'file-download' file_id %}>
-                            {{ filename }}</a>
-                    {% endfor %}
-                </h6>
-            </div>
+            {% for filename in filenames %}
+                <div class="file-card">
+                    {% get_file_id filename files as file_id %}
+                    <h3><a href={% url 'file-download' file_id %}>{{ filename }}</a></h3>
+                    {% truncate_bold_world filename word files as snippet %}
+                    <p>{{ snippet }}</p>
+                    <a href="{% url 'file-class' file_id %}" class="btn btn-outline-danger"><i
+                            class="bi bi-bar-chart"></i></a>
+                </div>
+            {% endfor %}
         {% endfor %}
     </div>
 {% endblock %}
