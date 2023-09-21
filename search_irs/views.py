@@ -16,11 +16,14 @@ def search(request):
 
 
 def handle_query_request(request):
-    serialize_query = query_json_serializer.encode(query=request.POST['query'])
+    user_query = request.POST['query']
+    serialize_query = query_json_serializer.encode(query=user_query)
     data_query_request = query_request.get_request_data(serialize_query)
     dict_filenames = json.loads(data_query_request)
     queryset_file = file_queryset_upl()
-    return render(request, 'search_irs/search.html', {'dict_filenames': dict_filenames, 'files': queryset_file})
+    return render(request, 'search_irs/search.html',
+                  {'dict_filenames': dict_filenames, 'files': queryset_file, 'query': user_query,
+                   'empty_dict': next(iter(dict_filenames.values())) })
 
 
 def show_main_view(request):
